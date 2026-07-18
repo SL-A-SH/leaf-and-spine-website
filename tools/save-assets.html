@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Leaf &amp; Spine — fetch film assets</title>
+<style>
+  body { font-family: Georgia, serif; background:#141210; color:#f2e9d8; display:flex; min-height:100vh;
+         align-items:center; justify-content:center; }
+  main { max-width: 640px; padding: 40px; }
+  h1 { font-weight: 500; letter-spacing:.06em; }
+  button { font: inherit; padding: 14px 28px; background:#b08d57; border:0; color:#171310;
+           cursor:pointer; letter-spacing:.12em; border-radius:2px; }
+  ol { line-height: 1.9; }
+  .log { font: 12px/1.7 monospace; color:#cfc4ad; margin-top: 18px; white-space: pre-wrap; }
+  a { color:#d4af37; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fetch the five film clips</h1>
+  <p>Click the button, then choose the <b>assets</b> folder inside <code>leaf-and-spine-website</code>.
+     The five clips will be saved as <code>clip1.mp4 … clip5.mp4</code> automatically.</p>
+  <button id="go">Choose assets folder &amp; download</button>
+  <div class="log" id="log"></div>
+  <p id="fallback" style="display:none">Automatic fetch was blocked by the CDN. Right-click each link →
+     “Save link as…” into the <code>assets</code> folder with the exact filename:</p>
+  <ol id="links" style="display:none"></ol>
+</main>
+<script>
+const CLIPS = [
+  ["clip1.mp4", "https://d8j0ntlcm91z4.cloudfront.net/user_3GFME50QHZhOxPbeWA7aVLIPyoh/hf_20260718_141644_2d90b2a3-4d32-4b20-8043-cac3298e68a8.mp4"],
+  ["clip2.mp4", "https://d8j0ntlcm91z4.cloudfront.net/user_3GFME50QHZhOxPbeWA7aVLIPyoh/hf_20260718_080809_a8e757c8-026f-465a-8ec8-67a88da79099.mp4"],
+  ["clip3.mp4", "https://d8j0ntlcm91z4.cloudfront.net/user_3GFME50QHZhOxPbeWA7aVLIPyoh/hf_20260718_081426_0859e902-f49b-42e5-bfe2-55243a12bf59.mp4"],
+  ["clip4.mp4", "https://d8j0ntlcm91z4.cloudfront.net/user_3GFME50QHZhOxPbeWA7aVLIPyoh/hf_20260718_082021_da12490a-e382-4c8a-a00a-d1720ff26aa6.mp4"],
+  ["clip5.mp4", "https://d8j0ntlcm91z4.cloudfront.net/user_3GFME50QHZhOxPbeWA7aVLIPyoh/hf_20260718_082545_fdd1e960-02c9-49c7-9b3c-3d4b3d2cfae5.mp4"],
+];
+const log = m => document.getElementById("log").textContent += m + "\n";
+document.getElementById("go").onclick = async () => {
+  let dir;
+  try { dir = await showDirectoryPicker({ mode: "readwrite" }); }
+  catch { return; }
+  for (const [name, url] of CLIPS) {
+    try {
+      log("fetching " + name + " …");
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(r.status);
+      const blob = await r.blob();
+      const fh = await dir.getFileHandle(name, { create: true });
+      const w = await fh.createWritable();
+      await w.write(blob); await w.close();
+      log("  saved " + name + " (" + (blob.size/1048576).toFixed(1) + " MB)");
+    } catch (e) {
+      log("  failed: " + e.message + " — falling back to manual links");
+      document.getElementById("fallback").style.display = "block";
+      const ol = document.getElementById("links");
+      ol.style.display = "block";
+      ol.innerHTML = CLIPS.map(([n,u]) => `<li><a href="${u}" download="${n}">${n}</a></li>`).join("");
+      return;
+    }
+  }
+  log("\nAll five clips saved. You can close this page.");
+};
+</script>
+</body>
+</html>

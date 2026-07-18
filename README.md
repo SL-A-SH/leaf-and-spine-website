@@ -1,111 +1,53 @@
-# Leaf & Spine - Privacy Policy Website
+# Leaf & Spine — Cinematic Scroll Website
 
-A simple, professional privacy policy website for the Leaf & Spine book reading app.
+An interactive short film: five Seedance 2.0 clips, chained frame-to-frame, scrubbed
+by scroll through a canvas frame sequence with Lenis smooth scrolling.
 
-## Features
+## Run locally
 
-- Clean, modern design with gradient background
-- Mobile responsive layout
-- Professional privacy policy page ready for Play Store and App Store submissions
-- Optimized for GitHub Pages deployment
+Any static server from the repo root works:
 
-## Local Development
-
-1. Install dependencies:
 ```bash
-npm install
+# option 1
+python -m http.server 5173
+# option 2
+npx serve -l 5173
 ```
 
-2. Run development server:
+Then open http://localhost:5173
+
+## Structure
+
+- `index.html` — the whole experience (nav, hero, pinned sections, final CTA)
+- `css/style.css` — design system: walnut / charcoal / cream / leather / brass
+- `js/main.js` — scroll engine: Lenis + canvas frame scrubbing + scene windows
+- `vendor/` — Lenis (vendored locally, no CDN needed)
+- `assets/clip1..5.mp4` — the five generated film clips
+- `assets/trailer.mp4`, `assets/poster.jpg` — built by `tools/extract.sh`
+- `frames/` — baked JPEG frame sequence + `manifest.js` (built by `tools/extract.sh`)
+
+## Rebuild the frame sequence
+
+With `assets/clip1.mp4 … clip5.mp4` present:
+
 ```bash
-npm run dev
+bash tools/extract.sh
 ```
 
-3. Build for production:
-```bash
-npm run build
-```
+## Scene map (film progress)
 
-## Deployment to GitHub Pages
+| Window       | Clip              | Overlay                     |
+|--------------|-------------------|-----------------------------|
+| 0.00 – 0.20  | The Invitation    | Hero                        |
+| 0.20 – 0.41  | The Story         | Reading                     |
+| 0.41 – 0.61  | The Sanctuary     | Focus × 4 environments      |
+| 0.61 – 0.80  | The Reader        | Study, Habit                |
+| 0.80 – 1.00  | The Collection    | Bookshelf, Privacy          |
+| hold (x > 1) | Final frame held  | Premium grid, Final CTA     |
 
-### Option 1: Automatic Deployment with GitHub Actions
+Windows were tuned to the actual rendered content (see data-in/data-out on each
+section in index.html). Frames 98–105 are a synthesized morph bridge smoothing
+the clip 1 → 2 seam.
 
-1. Create a new repository on GitHub
-2. Push your code to the repository:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git push -u origin main
-```
-
-3. Enable GitHub Pages in your repository settings:
-   - Go to Settings → Pages
-   - Under "Build and deployment", select "GitHub Actions" as the source
-
-4. The site will automatically deploy on every push to the main branch!
-
-### Option 2: Manual Deployment
-
-Run the deploy script:
-```bash
-npm run deploy
-```
-
-## Custom Domain Setup
-
-To use your custom domain with GitHub Pages:
-
-1. Go to your repository Settings → Pages
-2. Under "Custom domain", enter your domain name
-3. Add these DNS records at your domain registrar:
-   - For apex domain (example.com):
-     ```
-     Type: A
-     Host: @
-     Value: 185.199.108.153
-     Value: 185.199.109.153
-     Value: 185.199.110.153
-     Value: 185.199.111.153
-     ```
-   - For www subdomain:
-     ```
-     Type: CNAME
-     Host: www
-     Value: YOUR_USERNAME.github.io
-     ```
-
-4. Wait for DNS propagation (can take up to 24 hours)
-5. Enable "Enforce HTTPS" in repository settings
-
-## Important Configuration
-
-**Before deploying, update the `base` path in `vite.config.js`:**
-
-```javascript
-base: '/your-repo-name/',
-```
-
-If using a custom domain, change it to:
-```javascript
-base: '/',
-```
-
-## Contact Email
-
-Don't forget to update the contact email in the Privacy Policy section of the website. Currently set to: `contact@leafandspine.com`
-
-Edit this in `src/App.jsx` at line 53.
-
-## Technologies Used
-
-- React 19
-- Vite
-- GitHub Pages
-- GitHub Actions
-
-## License
-
-© 2026 Leaf & Spine. All rights reserved.
+The previous privacy-policy React app is preserved in git history
+(and its README as `README.privacy-site.md`).

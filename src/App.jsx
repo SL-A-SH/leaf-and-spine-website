@@ -22,14 +22,14 @@ function App() {
       <main className="content">
         <article className="privacy-policy">
           <h2>Privacy Policy for Leaf & Spine</h2>
-          <p className="last-updated">Last updated: January 6, 2026</p>
+          <p className="last-updated">Last updated: January 19, 2026</p>
 
           <section>
             <h3>Information We Collect</h3>
             <ul>
               <li>Anonymous user IDs (Firebase Authentication)</li>
               <li>Purchase history (stored locally and in Firebase)</li>
-              <li>App usage data (Firebase Analytics)</li>
+              <li>Device identifiers for push notifications (Expo Push Token)</li>
             </ul>
           </section>
 
@@ -37,7 +37,6 @@ function App() {
             <h3>How We Use Information</h3>
             <ul>
               <li>To provide in-app purchase functionality</li>
-              <li>To improve app performance and user experience</li>
               <li>To prevent fraud and validate purchases</li>
             </ul>
           </section>
@@ -48,6 +47,16 @@ function App() {
               <li>Purchase data is stored securely in Firebase</li>
               <li>User IDs are anonymized</li>
               <li>No personal information is collected</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Push Notifications</h3>
+            <ul>
+              <li>We may send push notifications to remind you to use the app</li>
+              <li>We collect a device identifier (push token) to deliver these notifications</li>
+              <li>You can disable notifications in your device settings at any time</li>
+              <li>Push tokens are sent to Expo Push Service for delivery only</li>
             </ul>
           </section>
 

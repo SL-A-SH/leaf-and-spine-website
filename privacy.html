@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Leaf &amp; Spine</title>
+  <meta name="description" content="Leaf & Spine privacy policy — no account required, your library stays yours." />
+  <link rel="canonical" href="https://sl-a-sh.github.io/leaf-and-spine-website/privacy.html" />
+  <meta name="theme-color" content="#141210" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leaf & Spine" />
+  <meta property="og:title" content="Privacy Policy — Leaf & Spine" />
+  <meta property="og:description" content="No account required. Your library stays yours." />
+  <meta property="og:url" content="https://sl-a-sh.github.io/leaf-and-spine-website/privacy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 4 C 8 10 7 20 16 28 C 25 20 24 10 16 4 Z M16 8 L16 24" stroke="%23b08d57" fill="none" stroke-width="1.6"/></svg>' />
+  <style>
+    :root {
+      --walnut: #3b2a1e; --charcoal: #141210; --cream: #f2e9d8; --cream-dim: #cfc4ad;
+      --leather: #2c1d14; --brass: #b08d57; --gold: #d4af37;
+      --serif: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+      --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background:
+        radial-gradient(120% 90% at 50% -10%, #1e1a15 0%, var(--charcoal) 60%);
+      color: var(--cream); font-family: var(--sans); min-height: 100vh;
+    }
+    ::selection { background: rgba(176,141,87,.35); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 26px clamp(22px, 4.5vw, 64px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); }
+    .brand svg { width: 22px; height: 22px; color: var(--brass); }
+    .brand span { font-family: var(--serif); font-size: 15px; letter-spacing: .34em; }
+    .brand em { font-style: normal; color: var(--brass); }
+    .back {
+      color: var(--cream-dim); text-decoration: none; font-size: 12px; letter-spacing: .22em;
+      text-transform: uppercase; position: relative; padding: 6px 0; transition: color .35s;
+    }
+    .back::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: var(--brass); transform: scaleX(0); transform-origin: right;
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+    .back:hover { color: var(--cream); }
+    .back:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    main { max-width: 660px; margin: 0 auto; padding: clamp(40px, 8vh, 90px) 24px 120px; }
+    .eyebrow {
+      font-size: 11.5px; letter-spacing: .5em; text-transform: uppercase; text-indent: .5em;
+      color: var(--brass); margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 6vw, 60px);
+      line-height: 1.05; text-wrap: balance;
+    }
+    .updated {
+      margin-top: 16px; font-family: var(--serif); font-style: italic;
+      color: var(--cream-dim); font-size: 17px;
+    }
+    .rule {
+      width: 64px; height: 1px; margin: 44px 0;
+      background: linear-gradient(90deg, var(--brass), transparent);
+    }
+    h2 {
+      font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3vw, 30px);
+      margin: 46px 0 16px; display: flex; align-items: baseline; gap: 14px;
+    }
+    h2::before { content: "❧"; color: var(--brass); font-size: .72em; }
+    p, li { font-weight: 300; font-size: 15.5px; line-height: 1.85; color: var(--cream-dim); }
+    ul { list-style: none; }
+    li { padding-left: 22px; position: relative; }
+    li::before {
+      content: ""; position: absolute; left: 2px; top: .82em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(176,141,87,.65);
+    }
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,175,55,.35); transition: border-color .3s; }
+    a:hover { border-color: var(--gold); }
+    .closing {
+      margin-top: 70px; padding-top: 34px; border-top: 1px solid rgba(242,233,216,.12);
+      font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--cream-dim);
+    }
+    footer {
+      display: flex; gap: 14px; justify-content: center; padding: 40px 20px;
+      font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(242,233,216,.4);
+    }
+    footer .dot { color: var(--brass); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3 C 8 9 7 19 16 29 C 25 19 24 9 16 3 Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8 L 16 25" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <span>LEAF <em>&amp;</em> SPINE</span>
+    </a>
+    <a class="back" href="index.html">← Back to the library</a>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: January 19, 2026</p>
+    <div class="rule"></div>
+
+    <p>Leaf &amp; Spine was built on a simple idea: your reading life belongs to you.
+       No account is required, and no personal information is collected. This page
+       describes the little we do handle, and why.</p>
+
+    <h2>Information We Collect</h2>
+    <ul>
+      <li>Anonymous user IDs (Firebase Authentication)</li>
+      <li>Purchase history (stored locally and in Firebase)</li>
+      <li>Device identifiers for push notifications (Expo Push Token)</li>
+    </ul>
+
+    <h2>How We Use Information</h2>
+    <ul>
+      <li>To provide in-app purchase functionality</li>
+      <li>To prevent fraud and validate purchases</li>
+    </ul>
+
+    <h2>Data Storage</h2>
+    <ul>
+      <li>Purchase data is stored securely in Firebase</li>
+      <li>User IDs are anonymized</li>
+      <li>No personal information is collected</li>
+    </ul>
+
+    <h2>Push Notifications</h2>
+    <ul>
+      <li>We may send push notifications to remind you to use the app</li>
+      <li>We collect a device identifier (push token) to deliver these notifications</li>
+      <li>You can disable notifications in your device settings at any time</li>
+      <li>Push tokens are sent to Expo Push Service for delivery only</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+    <ul>
+      <li>Firebase (Google)</li>
+      <li>Google Play In-App Billing</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:expera.forge@gmail.com">expera.forge@gmail.com</a></p>
+
+    <p class="closing">Your library stays yours.</p>
+  </main>
+
+  <footer>
+    <span>© 2026 Leaf &amp; Spine</span><span class="dot">·</span><span>Made for readers</span>
+  </footer>
+
+</body>
+</html>
