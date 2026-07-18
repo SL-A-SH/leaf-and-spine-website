@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sl-a-sh.github.io/leaf-and-spine-website/sitemap.xml

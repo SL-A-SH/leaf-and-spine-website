@@ -1,14 +1,317 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/leaf-and-spine-website/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leaf & Spine - Privacy Policy</title>
-    <script type="module" crossorigin src="/leaf-and-spine-website/assets/index-BINbI3MD.js"></script>
-    <link rel="stylesheet" crossorigin href="/leaf-and-spine-website/assets/index-seCSNvwl.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaf &amp; Spine — A Reading Sanctuary | PDF, EPUB, Manga &amp; Audiobook Reader</title>
+  <meta name="description" content="Leaf & Spine transforms reading into an immersive sanctuary — beautiful typography, ambient reading environments, a customizable 3D bookshelf, deep reading statistics and distraction-free focus sessions. Free on iOS & Android." />
+  <link rel="canonical" href="https://sl-a-sh.github.io/leaf-and-spine-website/" />
+  <meta name="theme-color" content="#141210" />
+  <meta name="author" content="Aqeeb Rizwan" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leaf & Spine" />
+  <meta property="og:title" content="Leaf & Spine — A Reading Sanctuary" />
+  <meta property="og:description" content="Transform your reading. Build your sanctuary. PDF, EPUB, Manga & Audiobooks — free on iOS & Android." />
+  <meta property="og:url" content="https://sl-a-sh.github.io/leaf-and-spine-website/" />
+  <meta property="og:image" content="https://sl-a-sh.github.io/leaf-and-spine-website/assets/poster.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="A handcrafted leather-bound book with a glowing leaf emboss on a walnut table" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leaf & Spine — A Reading Sanctuary" />
+  <meta name="twitter:description" content="Transform your reading. Build your sanctuary. PDF, EPUB, Manga & Audiobooks — free on iOS & Android." />
+  <meta name="twitter:image" content="https://sl-a-sh.github.io/leaf-and-spine-website/assets/poster.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Leaf & Spine",
+    "description": "A premium, distraction-free reading app for PDF, EPUB, CBR, CBZ and audiobooks — with ambient reading environments, a customizable 3D bookshelf, annotations, text-to-speech and deep reading statistics.",
+    "url": "https://sl-a-sh.github.io/leaf-and-spine-website/",
+    "image": "https://sl-a-sh.github.io/leaf-and-spine-website/assets/poster.jpg",
+    "applicationCategory": "BooksApplication",
+    "operatingSystem": "iOS 15.5+, iPadOS 15.5+, Android",
+    "author": { "@type": "Person", "name": "Aqeeb Rizwan" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to read. Premium from $0.99/month or $9.99/year. Prices may vary by region." },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": "1" },
+    "installUrl": "https://apps.apple.com/in/app/leaf-spine/id6758519785",
+    "sameAs": [
+      "https://apps.apple.com/in/app/leaf-spine/id6758519785",
+      "https://play.google.com/store/apps/details?id=com.experaforge.leafandspine"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="vendor/lenis.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 4 C 8 10 7 20 16 28 C 25 20 24 10 16 4 Z M16 8 L16 24" stroke="%23b08d57" fill="none" stroke-width="1.6"/></svg>' />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader" aria-hidden="true">
+    <svg class="loader-leaf" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="leaf-path" d="M32 6 C 16 18 14 38 32 58 C 50 38 48 18 32 6 Z" />
+      <path class="leaf-vein" d="M32 14 L 32 50" />
+    </svg>
+    <div class="loader-word">LEAF <span>&amp;</span> SPINE</div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-hint" id="loaderHint">Opening the book…</div>
+  </div>
+
+  <!-- Film canvas -->
+  <canvas id="film" aria-hidden="true"></canvas>
+  <div id="vignette" aria-hidden="true"></div>
+
+  <!-- Floating navigation -->
+  <nav id="nav" aria-label="Main">
+    <a class="brand" href="#top" data-goto="0">
+      <svg class="brand-leaf" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3 C 8 9 7 19 16 29 C 25 19 24 9 16 3 Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8 L 16 25" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-word">LEAF <em>&amp;</em> SPINE</span>
+    </a>
+    <div class="nav-links">
+      <a href="#reading" data-goto="0.24">Features</a>
+      <a href="#premium" data-goto="1.065">Premium</a>
+      <a href="#download" data-goto="1.3" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <!-- Chapter dots -->
+  <div id="chapters" aria-hidden="true">
+    <button data-goto="0.01" data-name="The Invitation"></button>
+    <button data-goto="0.22" data-name="The Story"></button>
+    <button data-goto="0.48" data-name="The Sanctuary"></button>
+    <button data-goto="0.63" data-name="The Reader"></button>
+    <button data-goto="0.96" data-name="The Collection"></button>
+  </div>
+
+  <!-- Overlay sections (driven by film progress) -->
+  <main id="stage">
+
+    <section class="scene" id="hero" data-in="0" data-out="0.105" data-fade="0.045">
+      <p class="eyebrow">A reading sanctuary</p>
+      <h1>Transform your<br/>reading.</h1>
+      <p class="sub">Build your sanctuary.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid magnetic download-cta" href="https://apps.apple.com/in/app/leaf-spine/id6758519785">Download App</a>
+        <button class="btn btn-ghost magnetic" id="watchTrailer">Watch Trailer</button>
+      </div>
+      <div class="scroll-hint"><span></span>Scroll to open the book</div>
+    </section>
+
+    <section class="scene left" id="reading" data-in="0.215" data-out="0.34" data-fade="0.03">
+      <p class="eyebrow">Reading</p>
+      <h2>Typography worth<br/>lingering on.</h2>
+      <p class="copy">Every page is typeset like a fine edition — margins, rhythm and ink chosen for long, quiet hours.</p>
+      <ul class="chips">
+        <li>PDF</li><li>EPUB</li><li>CBR</li><li>CBZ</li><li>Audiobooks</li>
+      </ul>
+    </section>
+
+    <section class="scene right" id="study" data-in="0.615" data-out="0.695" data-fade="0.025">
+      <p class="eyebrow">Study</p>
+      <h2>Mark the margins.</h2>
+      <ul class="tools">
+        <li><i>◈</i>Highlight</li>
+        <li><i>✎</i>Draw</li>
+        <li><i>❧</i>Notes</li>
+        <li><i>◉</i>Dictionary</li>
+        <li><i>⇄</i>Translator</li>
+        <li><i>♪</i>Text-to-Speech</li>
+      </ul>
+    </section>
+
+    <!-- Focus — one per environment, synced to clip 3 -->
+    <section class="scene left env" id="env-fire" data-in="0.466" data-out="0.496" data-fade="0.014">
+      <p class="eyebrow">Focus</p>
+      <h2>Cozy Fireplace</h2>
+      <p class="copy">Log-crackle warmth for winter chapters.</p>
+    </section>
+    <section class="scene right env" id="env-rain" data-in="0.501" data-out="0.530" data-fade="0.014">
+      <p class="eyebrow">Focus</p>
+      <h2>Rainy Window</h2>
+      <p class="copy">Grey light and slow rain for long Sundays.</p>
+    </section>
+    <section class="scene left env" id="env-beach" data-in="0.535" data-out="0.563" data-fade="0.014">
+      <p class="eyebrow">Focus</p>
+      <h2>Peaceful Beach</h2>
+      <p class="copy">Tides that turn pages with you.</p>
+    </section>
+    <section class="scene right env" id="env-fall" data-in="0.572" data-out="0.603" data-fade="0.014">
+      <p class="eyebrow">Focus</p>
+      <h2>Waterfall</h2>
+      <p class="copy">White noise, green light, deep focus.</p>
+    </section>
+
+    <section class="scene left" id="habit" data-in="0.705" data-out="0.788" data-fade="0.025">
+      <p class="eyebrow">Habit</p>
+      <h2>Reading, measured gently.</h2>
+      <div class="stats">
+        <div class="stat"><b data-count="47">0</b><span>day streak</span></div>
+        <div class="stat"><b data-count="23">0</b><span>books completed</span></div>
+        <div class="stat"><b data-count="128">0</b><span>hours read</span></div>
+      </div>
+      <svg class="chart" viewBox="0 0 280 90" aria-hidden="true">
+        <g class="bars">
+          <rect x="8"   y="90" width="24" height="34"/>
+          <rect x="46"  y="90" width="24" height="52"/>
+          <rect x="84"  y="90" width="24" height="28"/>
+          <rect x="122" y="90" width="24" height="64"/>
+          <rect x="160" y="90" width="24" height="46"/>
+          <rect x="198" y="90" width="24" height="72"/>
+          <rect x="236" y="90" width="24" height="58"/>
+        </g>
+      </svg>
+      <p class="copy small">Streaks, weekly goals and deep analytics — grown from your own turning pages.</p>
+    </section>
+
+    <section class="scene right" id="shelf" data-in="0.795" data-out="0.868" data-fade="0.025">
+      <p class="eyebrow">Your shelf</p>
+      <h2>A shelf that's<br/>yours alone.</h2>
+      <div class="mini-shelf" id="miniShelf">
+        <div class="book" style="--h:118px"><span class="spine-title">Meridian</span></div>
+        <div class="book" style="--h:132px"><span class="spine-title">The Quiet Hours</span></div>
+        <div class="book" style="--h:110px"><span class="spine-title">Inkwake</span></div>
+        <div class="book" style="--h:126px"><span class="spine-title">Papermoon</span></div>
+        <div class="book" style="--h:120px"><span class="spine-title">Vellum</span></div>
+        <div class="shelf-plank"></div>
+      </div>
+      <div class="swatches" id="swatches">
+        <button class="sw" data-c1="#7a4a2b" data-c2="#5c3620" style="--c:#7a4a2b" aria-label="Leather"></button>
+        <button class="sw" data-c1="#41523c" data-c2="#2e3b2a" style="--c:#41523c" aria-label="Moss"></button>
+        <button class="sw" data-c1="#5a3548" data-c2="#402535" style="--c:#5a3548" aria-label="Mulberry"></button>
+        <button class="sw" data-c1="#2f4457" data-c2="#213141" style="--c:#2f4457" aria-label="Midnight"></button>
+        <button class="sw pattern" data-pattern="1" aria-label="Pattern">❧</button>
+      </div>
+      <p class="copy small">Spines, patterns, covers — arrange them your way. Hover a book to take it off the shelf.</p>
+    </section>
+
+    <section class="scene center" id="privacy" data-in="0.878" data-out="0.928" data-fade="0.02">
+      <p class="eyebrow">Privacy</p>
+      <h2 class="serif-line">No account required.</h2>
+      <h2 class="serif-line dim">Your library stays yours.</h2>
+      <div class="privacy-notes">
+        <span>Google Drive backup</span>
+        <span class="dot">·</span>
+        <span>Anonymous authentication</span>
+      </div>
+      <a class="privacy-link" href="privacy.html">Read the full privacy policy</a>
+    </section>
+
+    <section class="scene center" id="premium" data-in="1.02" data-out="1.12" data-fade="0.02">
+      <p class="eyebrow">Premium</p>
+      <h2>Everything, unbound.</h2>
+      <div class="premium-grid">
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M3 19 9 8l4 6 3-4 5 9Z"/></svg>
+          <h3>Immersive Reading</h3>
+          <p>Beautiful environments and ambient sounds for deeper focus.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>
+          <h3>Immersive Audio</h3>
+          <p>Professional playback with speed controls, sleep timers and bookmarks.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M4 4a2 2 0 0 1 2-2h7v20H6a2 2 0 0 0-2 2Z"/><path d="M16 9v6"/><path d="M19 7v10"/><path d="M22 10v4"/></svg>
+          <h3>EPUB to Audiobook</h3>
+          <p>Any EPUB becomes an audiobook, narrated with natural text-to-speech.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 9h16"/><path class="accent" d="M4 13h11"/><path d="M4 17h16"/><path d="M4 21h9"/></svg>
+          <h3>Live Text</h3>
+          <p>The page follows the narration, line by line, as it's read aloud.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 1 1 .6-7.96A5.5 5.5 0 0 1 18.4 12 3.5 3.5 0 0 1 18 18Z"/></svg>
+          <h3>Sync &amp; Backup</h3>
+          <p>Keep your library, annotations, reading progress and stats secure.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-8"/><path d="M2 20h20"/></svg>
+          <h3>Insights</h3>
+          <p>Track habits, sessions, streaks and reading growth over time.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="m9 13-2 8 5-3 5 3-2-8"/></svg>
+          <h3>Badges &amp; Rank</h3>
+          <p>Unlock exclusive badges and level up your rank as you read.</p>
+        </div>
+        <div class="tile">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.6 0 2-1 1.4-2.1-.5-1 .1-1.9 1.6-1.9H17a4 4 0 0 0 4-4c0-5.5-4-10-9-10Z"/><circle cx="8" cy="10" r=".8"/><circle cx="12" cy="7.5" r=".8"/><circle cx="16" cy="10" r=".8"/></svg>
+          <h3>Personalize</h3>
+          <p>Custom themes, typography, and beautiful 3D book covers.</p>
+        </div>
+      </div>
+      <p class="price-line">Free to read. Premium from $0.99/month or $9.99/year.<span class="price-note">*Prices may vary by region.</span></p>
+    </section>
+
+    <section class="scene center" id="readers" data-in="1.14" data-out="1.20" data-fade="0.018">
+      <p class="eyebrow">From our readers</p>
+      <div class="quotes">
+        <blockquote>
+          <span>❝</span>
+          <p>A beautiful way to bring your reading world to life. Organized, inspiring, and truly yours.</p>
+        </blockquote>
+        <blockquote>
+          <span>❝</span>
+          <p>The insights keep me motivated and help me grow every day.</p>
+        </blockquote>
+        <blockquote>
+          <span>❝</span>
+          <p>I liked the ambient sounds. Made me feel like I am in a different place.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="scene center" id="download" data-in="1.22" data-out="1.4" data-fade="0.025">
+      <h2 class="final-line">Every great library<br/>begins with one book.</h2>
+      <a class="btn btn-solid btn-lg magnetic download-cta" href="https://apps.apple.com/in/app/leaf-spine/id6758519785">Download Leaf &amp; Spine</a>
+      <p class="store-strip">Free on the <a href="https://apps.apple.com/in/app/leaf-spine/id6758519785" target="_blank" rel="noopener">App Store</a> &amp; <a href="https://play.google.com/store/apps/details?id=com.experaforge.leafandspine&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a><span class="dot">·</span>PDF · EPUB · Manga · Audiobooks</p>
+      <footer><span>© 2026 Leaf &amp; Spine</span><span class="dot">·</span><a href="privacy.html">Privacy Policy</a><span class="dot">·</span><span>Made for readers</span></footer>
+    </section>
+
+  </main>
+
+  <!-- Scroll track -->
+  <div id="track" aria-hidden="true"></div>
+
+  <!-- Store chooser modal -->
+  <dialog id="storeModal">
+    <button class="modal-close" id="closeStore" aria-label="Close">✕</button>
+    <p class="store-title">Get Leaf <em>&amp;</em> Spine</p>
+    <p class="store-sub">Choose your bookshop.</p>
+    <div class="store-row">
+      <a class="store-btn" href="https://apps.apple.com/in/app/leaf-spine/id6758519785" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>
+        <span><small>Download on the</small>App Store</span>
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.experaforge.leafandspine&pcampaignid=web_share" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5V3.5c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31c.34.27.59.68.59 1.19s-.22.9-.57 1.18l-2.29 1.32-2.5-2.5 2.5-2.5 2.27 1.31zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+        <span><small>Get it on</small>Google Play</span>
+      </a>
+    </div>
+  </dialog>
+
+  <!-- Trailer modal -->
+  <dialog id="trailerModal">
+    <button class="modal-close" id="closeTrailer" aria-label="Close">✕</button>
+    <video id="trailerVideo" src="assets/trailer.mp4" controls playsinline></video>
+  </dialog>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="frames/manifest.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
