@@ -110,7 +110,7 @@
   <main>
     <p class="eyebrow">Privacy</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: January 19, 2026</p>
+    <p class="updated">Last updated: September 02, 2026</p>
     <div class="rule"></div>
 
     <p>Leaf &amp; Spine was built on a simple idea: your reading life belongs to you.
@@ -122,6 +122,7 @@
       <li>Anonymous user IDs (Firebase Authentication)</li>
       <li>Purchase history (stored locally and in Firebase)</li>
       <li>Device identifiers for push notifications (Expo Push Token)</li>
+      <li>Crash reports, if you leave them enabled (stack traces, device model, OS version, app version)</li>
     </ul>
 
     <h2>How We Use Information</h2>
@@ -134,7 +135,7 @@
     <ul>
       <li>Purchase data is stored securely in Firebase</li>
       <li>User IDs are anonymized</li>
-      <li>No personal information is collected</li>
+      <li>We do not collect your name, email address, or the contents of your library. Books, highlights, notes and reading progress stay on your device.</li>
     </ul>
 
     <h2>Push Notifications</h2>
@@ -144,11 +145,37 @@
       <li>You can disable notifications in your device settings at any time</li>
       <li>Push tokens are sent to Expo Push Service for delivery only</li>
     </ul>
+    <h2>Crash Reports</h2>
+    <p>When the app closes unexpectedly, it can send a report so the fault can be found and fixed. This is on by default and can be turned off at any time in Settings › Privacy › Send crash reports.</p>
+    <br>
+    <h4>A crash report contains:</h4>
+    <ul>
+      <li>The technical stack trace of the failure</li>
+      <li>Your device model, manufacturer, operating system version, and app version</li>
+      <li>Device characteristics such as screen size, available memory and storage, battery level, timezone and language</li>
+      <li>The list of Android permissions the app has been granted</li>
+      <li>A randomly generated identifier for your installation of the app, so repeat reports can be recognised as coming from one device. It resets if you reinstall and is not linked to you, your device's hardware, or any account</li>
+      <li>Which screen you were on, and the type of book open (PDF, EPUB, or audiobook)</li>
+      <li>Country and region derived by our crash reporting provider. Your IP address is not stored</li>
+    </ul>
+    <br>
+    <h4>A crash report never contains:</h4>
+    <ul>
+      <li>The titles, authors, contents, or file names of your books</li>
+      <li>Your highlights, notes, drawings, or reading progress</li>
+      <li>Your name, email address, or account details</li>
+    </ul>
+    <br>
+    <p>Crash reports are processed by Sentry (Functional Software, Inc., United States) and are not used for advertising or analytics.</p>
+
+    <h2>Your library</h2>
+    <p>Your books, highlights, notes, drawings and reading progress are stored on your device and are never uploaded. Cloud backup, if you use it, is to your own Google Drive account and is readable only by you.</p>
 
     <h2>Third-Party Services</h2>
     <ul>
       <li>Firebase (Google)</li>
       <li>Google Play In-App Billing</li>
+      <li>Sentry</li>
     </ul>
 
     <h2>Contact</h2>

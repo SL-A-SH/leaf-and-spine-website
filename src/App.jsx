@@ -22,7 +22,7 @@ function App() {
       <main className="content">
         <article className="privacy-policy">
           <h2>Privacy Policy for Leaf & Spine</h2>
-          <p className="last-updated">Last updated: January 19, 2026</p>
+          <p className="last-updated">Last updated: Sept 02, 2026</p>
 
           <section>
             <h3>Information We Collect</h3>
@@ -30,6 +30,7 @@ function App() {
               <li>Anonymous user IDs (Firebase Authentication)</li>
               <li>Purchase history (stored locally and in Firebase)</li>
               <li>Device identifiers for push notifications (Expo Push Token)</li>
+              <li>Crash reports, if you leave them enabled (stack traces, device model, OS version, app version)</li>
             </ul>
           </section>
 
@@ -46,7 +47,7 @@ function App() {
             <ul>
               <li>Purchase data is stored securely in Firebase</li>
               <li>User IDs are anonymized</li>
-              <li>No personal information is collected</li>
+              <li>We do not collect your name, email address, or the contents of your library. Books, highlights, notes and reading progress stay on your device.</li>
             </ul>
           </section>
 
@@ -61,10 +62,29 @@ function App() {
           </section>
 
           <section>
+            <h3>Crash Reports</h3>
+            <p>When the app closes unexpectedly, it can send a report so the fault can be found and fixed. This is on by default and can be turned off at any time in Settings › Privacy › Send crash reports.</p>
+            A crash report contains:
+            <ul>
+              <li>The technical stack trace of the failure</li>
+              <li>Your device model, operating system version, and app version</li>
+              <li>Which screen you were on, and the type of book open (PDF, EPUB, or audiobook)</li>
+            </ul>
+            A crash report never contains:
+            <ul>
+              <li>The titles, authors, contents, or file names of your books</li>
+              <li>Your highlights, notes, drawings, or reading progress</li>
+              <li>Your name, email address, or account details</li>
+            </ul>
+            Crash reports are processed by Sentry (Functional Software, Inc., United States) and are not used for advertising or analytics.
+          </section>
+
+          <section>
             <h3>Third-Party Services</h3>
             <ul>
               <li>Firebase (Google)</li>
               <li>Google Play In-App Billing</li>
+              <li>Sentry (crash reporting) — sentry.io/privacy</li>
             </ul>
           </section>
 
