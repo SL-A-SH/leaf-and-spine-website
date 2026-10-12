@@ -10,7 +10,7 @@ rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
 
 const items = [
-  "index.html", "privacy.html", "robots.txt", "sitemap.xml",
+  "index.html", "privacy.html", "support.html", "robots.txt", "sitemap.xml",
   "css", "js", "vendor", "frames",
 ];
 for (const item of items) {

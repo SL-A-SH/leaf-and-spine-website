@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Leaf &amp; Spine</title>
+  <meta name="description" content="Help with Leaf & Spine: contact, purchases, backups, adding books and syncing your reading." />
+  <link rel="canonical" href="https://sl-a-sh.github.io/leaf-and-spine-website/support.html" />
+  <meta name="theme-color" content="#141210" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leaf & Spine" />
+  <meta property="og:title" content="Support — Leaf & Spine" />
+  <meta property="og:description" content="Help with Leaf & Spine." />
+  <meta property="og:url" content="https://sl-a-sh.github.io/leaf-and-spine-website/support.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 4 C 8 10 7 20 16 28 C 25 20 24 10 16 4 Z M16 8 L16 24" stroke="%23b08d57" fill="none" stroke-width="1.6"/></svg>' />
+  <style>
+    :root {
+      --walnut: #3b2a1e; --charcoal: #141210; --cream: #f2e9d8; --cream-dim: #cfc4ad;
+      --leather: #2c1d14; --brass: #b08d57; --gold: #d4af37;
+      --serif: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+      --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background:
+        radial-gradient(120% 90% at 50% -10%, #1e1a15 0%, var(--charcoal) 60%);
+      color: var(--cream); font-family: var(--sans); min-height: 100vh;
+    }
+    ::selection { background: rgba(176,141,87,.35); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 26px clamp(22px, 4.5vw, 64px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); }
+    .brand svg { width: 22px; height: 22px; color: var(--brass); }
+    .brand span { font-family: var(--serif); font-size: 15px; letter-spacing: .34em; }
+    .brand em { font-style: normal; color: var(--brass); }
+    .back {
+      color: var(--cream-dim); text-decoration: none; font-size: 12px; letter-spacing: .22em;
+      text-transform: uppercase; position: relative; padding: 6px 0; transition: color .35s;
+    }
+    .back::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: var(--brass); transform: scaleX(0); transform-origin: right;
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+    .back:hover { color: var(--cream); }
+    .back:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    main { max-width: 660px; margin: 0 auto; padding: clamp(40px, 8vh, 90px) 24px 120px; }
+    .eyebrow {
+      font-size: 11.5px; letter-spacing: .5em; text-transform: uppercase; text-indent: .5em;
+      color: var(--brass); margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 6vw, 60px);
+      line-height: 1.05; text-wrap: balance;
+    }
+    .updated {
+      margin-top: 16px; font-family: var(--serif); font-style: italic;
+      color: var(--cream-dim); font-size: 17px;
+    }
+    .rule {
+      width: 64px; height: 1px; margin: 44px 0;
+      background: linear-gradient(90deg, var(--brass), transparent);
+    }
+    h2 {
+      font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3vw, 30px);
+      margin: 46px 0 16px; display: flex; align-items: baseline; gap: 14px;
+    }
+    h2::before { content: "❧"; color: var(--brass); font-size: .72em; }
+    p, li { font-weight: 300; font-size: 15.5px; line-height: 1.85; color: var(--cream-dim); }
+    ul { list-style: none; }
+    li { padding-left: 22px; position: relative; }
+    li::before {
+      content: ""; position: absolute; left: 2px; top: .82em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(176,141,87,.65);
+    }
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,175,55,.35); transition: border-color .3s; }
+    a:hover { border-color: var(--gold); }
+    .closing {
+      margin-top: 70px; padding-top: 34px; border-top: 1px solid rgba(242,233,216,.12);
+      font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--cream-dim);
+    }
+    footer {
+      display: flex; gap: 14px; justify-content: center; padding: 40px 20px;
+      font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(242,233,216,.4);
+    }
+    footer .dot { color: var(--brass); }
+    .contact {
+      margin-top: 8px; padding: 26px 28px; border: 1px solid rgba(176,141,87,.35);
+      border-radius: 14px; background: rgba(44,29,20,.35);
+    }
+    .contact p { margin: 0; }
+    .contact .mail { font-family: var(--serif); font-size: 24px; margin: 8px 0 10px; }
+    h3 {
+      font-family: var(--serif); font-weight: 500; font-size: 21px; color: var(--cream);
+      margin: 28px 0 8px;
+    }
+    footer a { color: rgba(242,233,216,.55); border: 0; }
+    footer a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3 C 8 9 7 19 16 29 C 25 19 24 9 16 3 Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8 L 16 25" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <span>LEAF <em>&amp;</em> SPINE</span>
+    </a>
+    <a class="back" href="index.html">← Back to the library</a>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Support</p>
+    <h1>How can we help?</h1>
+    <p class="updated">Answers to common questions, and how to reach us.</p>
+    <div class="rule"></div>
+
+    <div class="contact">
+      <p>Write to us — a person reads every message.</p>
+      <p class="mail"><a href="mailto:expera.forge@gmail.com?subject=Leaf%20%26%20Spine%20support">expera.forge@gmail.com</a></p>
+      <p>It helps to include your device (for example, iPhone 15 or Pixel 8), its system version, the app version, and what you did just before the problem.</p>
+    </div>
+
+    <h2>Purchases</h2>
+    <h3>I bought Premium but the app doesn’t show it</h3>
+    <p>Open Settings and tap <strong>Restore purchases</strong>. Make sure you are signed in to the same Apple ID or Google account you bought it with. If it still doesn’t appear, write to us with the date of purchase; please don’t send card details.</p>
+    <h3>Refunds</h3>
+    <p>Purchases are handled by the App Store and Google Play, so refunds are requested from them: on iPhone and iPad at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>, on Android from your order history in Google Play.</p>
+
+    <h2>Adding books</h2>
+    <p>Use <strong>Add books</strong> to pick files, scan a folder, download free books from Discover, or connect your own server. The app opens EPUB and PDF books, CBZ and CBR comics, and audiobooks. MOBI and AZW3 are not supported; convert them to EPUB first, for example with Calibre.</p>
+    <h3>A book won’t open</h3>
+    <p>The file may be damaged or incomplete, often from an interrupted download. Try opening it on a computer; if it fails there too, download it again. If it opens elsewhere but not in Leaf &amp; Spine, write to us and say where the book came from.</p>
+
+    <h2>Backups</h2>
+    <p>With Premium you can back up your library to your own Google Drive, or to iCloud Drive on iPhone and iPad, from Settings. A backup holds your library details, highlights, notes, drawings and reading progress, and your book files if you choose to include them. To move to a new phone, install the app, sign in to the same account, and restore.</p>
+
+    <h2>Syncing your reading</h2>
+    <p>Settings › <strong>Sync progress with my servers</strong> keeps your place in step with Audiobookshelf, Komga, Kavita and KOReader. Automatic sync is off until you turn it on; <strong>Sync now</strong> works either way.</p>
+    <h3>KOReader doesn’t pick up my book</h3>
+    <p>KOReader recognises a book by its file, so both devices need the same file: one downloaded from the same server, or copied across unchanged. An EPUB starts syncing after it has been opened in Leaf &amp; Spine once, and opens at the start of the chapter KOReader was in.</p>
+    <h3>A server says it couldn’t be reached</h3>
+    <p>Check the server is switched on and that your phone is on the same network. Away from home, use the server’s https address.</p>
+
+    <h2>Your data</h2>
+    <p>Your books, highlights and notes stay on your device. Deleting the app deletes them; backups in your Google Drive or iCloud Drive stay there until you delete them. Crash reports can be turned off in Settings › Privacy. The <a href="privacy.html">privacy policy</a> has the details.</p>
+
+    <p class="closing">Happy reading.</p>
+  </main>
+
+  <footer>
+    <span>© 2026 Leaf &amp; Spine</span><span class="dot">·</span><a href="privacy.html">Privacy Policy</a><span class="dot">·</span><span>Made for readers</span>
+  </footer>
+
+</body>
+</html>
