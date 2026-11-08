@@ -110,7 +110,7 @@
   <main>
     <p class="eyebrow">Privacy</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: October 12, 2026</p>
+    <p class="updated">Last updated: November 6, 2026</p>
     <div class="rule"></div>
 
     <p>Leaf &amp; Spine was built on a simple idea: your reading life belongs to you.
@@ -214,6 +214,32 @@
       <li>Nothing about the search is sent to us</li>
     </ul>
 
+    <h2>Adding Books Without a File</h2>
+    <p>You can add a book you are reading elsewhere, such as a paperback or a library loan, by searching for it, by typing it in, or by scanning its barcode.</p>
+    <ul>
+      <li>A search sends the words or ISBN you entered to Open Library, as described under Looking Up Book Details</li>
+      <li>A book you type in by hand is not sent anywhere</li>
+      <li>The progress you record for these books stays on your device, like the rest of your library</li>
+    </ul>
+
+    <h2>Camera</h2>
+    <p>The app asks for the camera only to scan the barcode on a book you are adding, and only when you tap the scan button. You can refuse, and type the ISBN instead.</p>
+    <ul>
+      <li>The barcode is read on your device. Camera images are not saved, and are never sent to us or to anyone else</li>
+      <li>Only the ISBN read from the barcode is sent, to Open Library, to find the book</li>
+      <li>Nothing is recorded, and the app does not use your microphone</li>
+      <li>On Android, the barcode is read by Google's ML Kit, which runs on your device. ML Kit processes the camera images on your device. It also sends Google diagnostic information about how it is working: your device's make, model and system version, the app's name and version, an identifier for this installation, and performance, configuration and error data. Google says this is used for diagnostics and usage analytics, is encrypted in transit, and is not shared with third parties; see <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a></li>
+      <li>On iPhone and iPad, the barcode is read by Apple's own system, on your device</li>
+    </ul>
+
+    <h2>Importing a Reading List</h2>
+    <p>With Premium you can import a Goodreads or StoryGraph export file.</p>
+    <ul>
+      <li>The file is read on your device and is not sent to us</li>
+      <li>Ratings, reviews and private notes in the file are not kept</li>
+      <li>To fetch covers, the ISBN of each imported book that has one is sent to Open Library, in the background, while the app is open</li>
+    </ul>
+
     <h2>Your Own Servers</h2>
     <p>With Premium you can connect the app to a server you run or use: an OPDS catalogue (such as Calibre, Komga or Kavita), a WebDAV folder, or Audiobookshelf. Nothing is sent to a server unless you add it.</p>
     <ul>
@@ -253,6 +279,7 @@
       <li>Apple App Store In-App Purchase</li>
       <li>Sentry</li>
       <li>Open Library and the Internet Archive (book details, covers and free books)</li>
+      <li>Google ML Kit (barcode scanning on Android, only if you scan a barcode)</li>
       <li>Project Gutenberg (via Gutendex), Standard Ebooks and LibriVox (free books and audiobooks)</li>
       <li>Servers you connect yourself, and KOReader's sync server (only if you use them)</li>
     </ul>
